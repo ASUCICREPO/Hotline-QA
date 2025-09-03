@@ -1,5 +1,5 @@
 {
-  "app": "npx ts-node --prefer-ts-exts bin/hotline-qa-app.ts",
+  "app": "npx ts-node --prefer-ts-exts backend/bin/hotline-qa-app.ts",
   "watch": {
     "include": [
       "**"

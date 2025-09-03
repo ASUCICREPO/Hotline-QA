@@ -168,7 +168,7 @@ export class HotlineQaStack extends cdk.Stack {
 
     // Create Lambda function to start the workflow
     const startWorkflowFunction = new lambdaNodejs.NodejsFunction(this, 'StartWorkflowFunction', {
-      entry: path.join(__dirname, '../src/functions/start-workflow.ts'),
+      entry: path.join(__dirname, '../functions/start-workflow.ts'),
       handler: 'handler',
       runtime: lambda.Runtime.NODEJS_18_X,
       timeout: cdk.Duration.seconds(30),
@@ -177,7 +177,7 @@ export class HotlineQaStack extends cdk.Stack {
 
     // Create Lambda function to start transcription jobs
     const transcribeFunction = new lambdaNodejs.NodejsFunction(this, 'TranscribeFunction', {
-      entry: path.join(__dirname, '../src/functions/start-transcribe.ts'),
+      entry: path.join(__dirname, '../functions/start-transcribe.ts'),
       handler: 'handler',
       runtime: lambda.Runtime.NODEJS_18_X,
       timeout: cdk.Duration.seconds(30),
@@ -190,7 +190,7 @@ export class HotlineQaStack extends cdk.Stack {
 
     // Create Lambda function to check transcription job status
     const checkTranscribeStatusFunction = new lambdaNodejs.NodejsFunction(this, 'CheckTranscribeStatusFunction', {
-      entry: path.join(__dirname, '../src/functions/check-transcribe-status.ts'),
+      entry: path.join(__dirname, '../functions/check-transcribe-status.ts'),
       handler: 'handler',
       runtime: lambda.Runtime.NODEJS_18_X,
       timeout: cdk.Duration.seconds(30),
@@ -199,7 +199,7 @@ export class HotlineQaStack extends cdk.Stack {
 
     // Create Lambda function to format transcription output
     const formatFunction = new lambdaNodejs.NodejsFunction(this, 'FormatFunction', {
-      entry: path.join(__dirname, '../src/functions/format-transcript.ts'),
+      entry: path.join(__dirname, '../functions/format-transcript.ts'),
       handler: 'handler',
       runtime: lambda.Runtime.NODEJS_18_X,
       timeout: cdk.Duration.seconds(30),
@@ -211,7 +211,7 @@ export class HotlineQaStack extends cdk.Stack {
 
     // Create Lambda function for LLM analysis using Bedrock
     const analyzeLLMFunction = new lambdaNodejs.NodejsFunction(this, 'AnalyzeLLMFunction', {
-      entry: path.join(__dirname, '../src/functions/analyze-llm.ts'),
+      entry: path.join(__dirname, '../functions/analyze-llm.ts'),
       handler: 'handler',
       runtime: lambda.Runtime.NODEJS_18_X,
       timeout: cdk.Duration.minutes(15), // Maximum Lambda timeout for long-running LLM calls
@@ -224,7 +224,7 @@ export class HotlineQaStack extends cdk.Stack {
     
     // Create Lambda function for aggregating scores
     const aggregateScoresFunction = new lambdaNodejs.NodejsFunction(this, 'AggregateScoresFunction', {
-      entry: path.join(__dirname, '../src/functions/aggregate-scores.ts'),
+      entry: path.join(__dirname, '../functions/aggregate-scores.ts'),
       handler: 'handler',
       runtime: lambda.Runtime.NODEJS_18_X,
       timeout: cdk.Duration.seconds(30),
@@ -236,7 +236,7 @@ export class HotlineQaStack extends cdk.Stack {
     
     // Create Lambda function for updating counselor records in DynamoDB
     const updateCounselorRecordsFunction = new lambdaNodejs.NodejsFunction(this, 'UpdateCounselorRecordsFunction', {
-      entry: path.join(__dirname, '../src/functions/update-counselor-records.ts'),
+      entry: path.join(__dirname, '../functions/update-counselor-records.ts'),
       handler: 'handler',
       runtime: lambda.Runtime.NODEJS_18_X,
       timeout: cdk.Duration.seconds(30),
@@ -250,7 +250,7 @@ export class HotlineQaStack extends cdk.Stack {
 
     // Create Lambda function for managing counselor profiles (API operations)
     const manageCounselorProfilesFunction = new lambdaNodejs.NodejsFunction(this, 'ManageCounselorProfilesFunction', {
-      entry: path.join(__dirname, '../src/functions/manage-counselor-profiles.ts'),
+      entry: path.join(__dirname, '../functions/manage-counselor-profiles.ts'),
       handler: 'handler',
       runtime: lambda.Runtime.NODEJS_18_X,
       timeout: cdk.Duration.seconds(30),
@@ -263,7 +263,7 @@ export class HotlineQaStack extends cdk.Stack {
 
     // Create Lambda function for generating presigned URLs
     const generatePresignedUrlFunction = new lambdaNodejs.NodejsFunction(this, 'GeneratePresignedUrlFunction', {
-      entry: path.join(__dirname, '../src/functions/generate-presigned-url.ts'),
+      entry: path.join(__dirname, '../functions/generate-presigned-url.ts'),
       handler: 'handler',
       runtime: lambda.Runtime.NODEJS_18_X,
       timeout: cdk.Duration.seconds(30),
@@ -275,7 +275,7 @@ export class HotlineQaStack extends cdk.Stack {
 
     // Create Lambda function for getting analysis results
     const getResultsFunction = new lambdaNodejs.NodejsFunction(this, 'GetResultsFunction', {
-      entry: path.join(__dirname, '../src/functions/get-results.ts'),
+      entry: path.join(__dirname, '../functions/get-results.ts'),
       handler: 'handler',
       runtime: lambda.Runtime.NODEJS_18_X,
       timeout: cdk.Duration.seconds(30),
@@ -287,7 +287,7 @@ export class HotlineQaStack extends cdk.Stack {
 
     // Create Lambda function for getting counselor data
     const getCounselorDataFunction = new lambdaNodejs.NodejsFunction(this, 'GetCounselorDataFunction', {
-      entry: path.join(__dirname, '../src/functions/get-counselor-data.ts'),
+      entry: path.join(__dirname, '../functions/get-counselor-data.ts'),
       handler: 'handler',
       runtime: lambda.Runtime.NODEJS_18_X,
       timeout: cdk.Duration.seconds(30),
@@ -299,7 +299,7 @@ export class HotlineQaStack extends cdk.Stack {
 
     // Create Lambda function for getting specific analysis results
     const getAnalysisResultsFunction = new lambdaNodejs.NodejsFunction(this, 'GetAnalysisResultsFunction', {
-      entry: path.join(__dirname, '../src/functions/get-analysis-results.ts'),
+      entry: path.join(__dirname, '../functions/get-analysis-results.ts'),
       handler: 'handler',
       runtime: lambda.Runtime.NODEJS_18_X,
       timeout: cdk.Duration.seconds(30),
@@ -311,7 +311,7 @@ export class HotlineQaStack extends cdk.Stack {
 
     // Create Lambda function for checking Step Functions execution status
     const checkExecutionStatusFunction = new lambdaNodejs.NodejsFunction(this, 'CheckExecutionStatusFunction', {
-      entry: path.join(__dirname, '../src/functions/check-execution-status.ts'),
+      entry: path.join(__dirname, '../functions/check-execution-status.ts'),
       handler: 'handler',
       runtime: lambda.Runtime.NODEJS_18_X,
       timeout: cdk.Duration.seconds(30),

@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import 'source-map-support/register';
 import * as cdk from 'aws-cdk-lib';
-import { CodeBuildDeploymentStack } from '../lib/codebuild-deployment-stack';
+import { CodeBuildDeploymentStack } from '../infrastructure/codebuild-deployment-stack';
 
 const app = new cdk.App();
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import 'source-map-support/register';
 import * as cdk from 'aws-cdk-lib';
-import { HotlineQaStack } from '../lib/hotline-qa-stack';
+import { HotlineQaStack } from '../infrastructure/hotline-qa-stack';
 
 const app = new cdk.App();
 
