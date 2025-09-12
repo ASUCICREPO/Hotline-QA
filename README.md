@@ -17,10 +17,20 @@ A comprehensive, enterprise-grade automated quality assessment system for crisis
 - **AWS Amplify**: Hosts React frontend with automated CI/CD
 - **AWS CodeBuild**: Automated deployment system
 
-### System Architecture
-```
-Audio Upload (S3) → Step Functions Workflow → Transcribe → Format → AI Analysis → Score Aggregation → DynamoDB Storage → Frontend Display
-```
+### Workflow Process Steps
+
+The numbered workflow in the architecture diagram represents the following automated process:
+
+1. **File Upload**: Users upload audio recordings (.wav format) through the React frontend hosted on AWS Amplify
+2. **S3 Event Trigger**: Audio files are stored in the S3 bucket's `records/` folder, automatically triggering the processing workflow
+3. **Workflow Initiation**: Lambda function receives the S3 event and initiates the Step Functions state machine for orchestrated processing
+4. **Transcription Start**: Lambda function starts an AWS Transcribe Call Analytics job to convert audio to text with speaker separation
+5. **Transcript Generation**: AWS Transcribe processes the audio recording and saves the complete transcript with metadata to S3
+6. **Data Formatting**: Lambda function retrieves and formats the raw transcript output, extracting relevant conversation details and timestamps
+7. **AI Analysis**: Formatted transcript is sent to Amazon Bedrock (Nova Pro) for quality assessment against the crisis counseling rubric, with results stored in S3
+8. **Score Aggregation**: Lambda function processes the AI analysis results, calculating category scores and overall performance metrics
+9. **Database Storage**: Final evaluation results and counselor performance data are stored in DynamoDB tables for historical tracking
+10. **Results Display**: Frontend retrieves and displays the comprehensive quality assessment report to users through the web interface
 
 ## Key Features
 
